@@ -26,6 +26,18 @@
   version = "1.0.0"
 
 [[projects]]
+  digest = "1:4105793d064c026895f82f9fb76520146c012fc10980a6496d8663491c179faf"
+  name = "github.com/aws/aws-lambda-go"
+  packages = [
+    "lambda",
+    "lambda/messages",
+    "lambdacontext",
+  ]
+  pruneopts = "NUT"
+  revision = "9e3676ee8ca83aee500682f382e10b9d03660093"
+  version = "v1.8.0"
+
+[[projects]]
   digest = "1:5494cf2a25198713bb2ada9824abccc5610230f6d35c79deec16258a9a92203b"
   name = "github.com/aws/aws-sdk-go"
   packages = [
@@ -537,6 +549,7 @@
   analyzer-version = 1
   input-imports = [
     "cloud.google.com/go/storage",
+    "github.com/aws/aws-lambda-go/lambda",
     "github.com/aws/aws-sdk-go/aws",
     "github.com/aws/aws-sdk-go/aws/session",
     "github.com/aws/aws-sdk-go/service/s3",

@@ -19,13 +19,17 @@ func main() {
 		}()
 	}
 
-	s := startServer()
+	if len(os.Getenv("_LAMBDA_SERVER_PORT")) == 0 {
+		s := startServer()
 
-	stop := make(chan os.Signal, 1)
-	signal.Notify(stop, os.Interrupt, os.Kill)
+		stop := make(chan os.Signal, 1)
+		signal.Notify(stop, os.Interrupt, os.Kill)
 
-	<-stop
+		<-stop
 
-	shutdownServer(s)
-	shutdownVips()
+		shutdownServer(s)
+		shutdownVips()
+	} else {
+		startLambdaServer()
+	}
 }

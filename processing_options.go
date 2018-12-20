@@ -833,8 +833,7 @@ func parsePathBasic(parts []string, headers *processingHeaders) (string, *proces
 	return url, po, nil
 }
 
-func parsePath(ctx context.Context, r *http.Request) (context.Context, error) {
-	path := r.URL.Path
+func parsePath(ctx context.Context, path string, headers *processingHeaders) (context.Context, error) {
 	parts := strings.Split(strings.TrimPrefix(path, "/"), "/")
 
 	if len(parts) < 3 {
@@ -845,13 +844,6 @@ func parsePath(ctx context.Context, r *http.Request) (context.Context, error) {
 		if err := validatePath(parts[0], strings.TrimPrefix(path, fmt.Sprintf("/%s", parts[0]))); err != nil {
 			return ctx, newError(403, err.Error(), msgForbidden)
 		}
-	}
-
-	headers := &processingHeaders{
-		Accept:        r.Header.Get("Accept"),
-		Width:         r.Header.Get("Width"),
-		ViewportWidth: r.Header.Get("Viewport-Width"),
-		DPR:           r.Header.Get("DPR"),
 	}
 
 	var imageURL string
@@ -872,6 +864,19 @@ func parsePath(ctx context.Context, r *http.Request) (context.Context, error) {
 	ctx = context.WithValue(ctx, processingOptionsCtxKey, po)
 
 	return ctx, nil
+}
+
+func parseRequest(ctx context.Context, r *http.Request) (context.Context, error) {
+	path := r.URL.Path
+
+	headers := processingHeaders{
+		Accept:        r.Header.Get("Accept"),
+		Width:         r.Header.Get("Width"),
+		ViewportWidth: r.Header.Get("Viewport-Width"),
+		DPR:           r.Header.Get("DPR"),
+	}
+
+	return parsePath(ctx, path, &headers)
 }
 
 func getImageURL(ctx context.Context) string {

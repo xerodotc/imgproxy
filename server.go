@@ -248,7 +248,7 @@ func (h *httpHandler) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 	ctx, timeoutCancel := startTimer(ctx, time.Duration(conf.WriteTimeout)*time.Second)
 	defer timeoutCancel()
 
-	ctx, err := parsePath(ctx, r)
+	ctx, err := parseRequest(ctx, r)
 	if err != nil {
 		panic(err)
 	}
