@@ -4,8 +4,7 @@
 
 ## [2.10.1+obssdk3.20.1-1] - 2020-03-12
 ### Added
-- Support for Huawei OBS storage.
-- `IMGPROXY_USE_OBS`, `IMGPROXY_OBS_ENDPOINT`, `IMGPROXY_OBS_ACCESSKEY` and `IMGPROXY_OBS_SECRETKEY` configs.
+- Support for [Huawei OBS storage](./docs/serving_files_from_huawei_obs.md).
 
 ## [2.10.1] - 2020-02-27
 ### Changed

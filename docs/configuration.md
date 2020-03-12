@@ -206,6 +206,17 @@ imgproxy can process files from Google Cloud Storage buckets, but this feature i
 
 Check out the [Serving files from Google Cloud Storage](serving_files_from_google_cloud_storage.md) guide to learn more.
 
+## Serving files from Huawei OBS
+
+imgproxy can process files from Huawei OBS buckets, but this feature is disabled by default. To enable it, set `IMGPROXY_USE_OBS` to `true`:
+
+* `IMGPROXY_USE_OBS`: when `true`, enables image fetching from Huawei OBS buckets. Default: false;
+* `IMGPROXY_OBS_ENDPOINT`: Huawei OBS endpoint to being used by imgproxy.
+* `IMGPROXY_OBS_ACCESSKEY`: Huawei Cloud access key.
+* `IMGPROXY_OBS_SECRETKEY`: Huawei Cloud secret key.
+
+Check out the [Serving files from Huawei OBS](serving_files_from_huawei_obs.md) guide to learn more.
+
 ## New Relic metrics
 
 imgproxy can send its metrics to New Relic. Specify your New Relic license key to activate this feature:
