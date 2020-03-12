@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-## [2.10.1+obssdk3.20.1-1] - 2020-03-12
+## [2.10.1-obssdk3.20.1-1] - 2020-03-12
 ### Added
 - Support for [Huawei OBS storage](./docs/serving_files_from_huawei_obs.md).
 
