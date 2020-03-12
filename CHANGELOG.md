@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [2.10.1+obssdk3.20.1-1] - 2020-03-12
+### Added
+- Support for Huawei OBS storage.
+- `IMGPROXY_USE_OBS`, `IMGPROXY_OBS_ENDPOINT`, `IMGPROXY_OBS_ACCESSKEY` and `IMGPROXY_OBS_SECRETKEY` configs.
+
 ## [2.10.1] - 2020-02-27
 ### Changed
 - `imgproxy -v` is replaced with `imgproxy version`.
