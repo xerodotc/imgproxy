@@ -92,6 +92,14 @@ func initDownloading() error {
 		}
 	}
 
+	if conf.OBSEnabled {
+		if t, err := newOBSTransport(); err != nil {
+			return err
+		} else {
+			transport.RegisterProtocol("obs", t)
+		}
+	}
+
 	downloadClient = &http.Client{
 		Timeout:   time.Duration(conf.DownloadTimeout) * time.Second,
 		Transport: transport,

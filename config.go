@@ -209,6 +209,10 @@ type config struct {
 	S3Endpoint          string
 	GCSEnabled          bool
 	GCSKey              string
+	OBSEnabled          bool
+	OBSEndpoint         string
+	OBSAccessKey        string
+	OBSSecretKey        string
 
 	ETagEnabled bool
 
@@ -355,6 +359,11 @@ func configure() error {
 
 	boolEnvConfig(&conf.GCSEnabled, "IMGPROXY_USE_GCS")
 	strEnvConfig(&conf.GCSKey, "IMGPROXY_GCS_KEY")
+
+	boolEnvConfig(&conf.OBSEnabled, "IMGPROXY_USE_OBS")
+	strEnvConfig(&conf.OBSEndpoint, "IMGPROXY_OBS_ENDPOINT")
+	strEnvConfig(&conf.OBSAccessKey, "IMGPROXY_OBS_ACCESSKEY")
+	strEnvConfig(&conf.OBSSecretKey, "IMGPROXY_OBS_SECRETKEY")
 
 	boolEnvConfig(&conf.ETagEnabled, "IMGPROXY_USE_ETAG")
 
